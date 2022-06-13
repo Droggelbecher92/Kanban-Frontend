@@ -1,16 +1,21 @@
 import React from "react";
+import { Task } from "../services/model";
+import KanbanCard from "./KanbanCard";
 
-export default function KanbanColumn(){
+interface KanbanColumnProps {
+    headline: string;
+    tasks: Array<Task>;
+    onTaskManipulation: () => void;
+}
+
+export default function KanbanColumn(props: KanbanColumnProps) {
+
+    const taskComponents = props.tasks.map(task => <div key={task.id}><KanbanCard task={task} onTaskDeletion={props.onTaskManipulation} /></div>)
+
     return(
         <div className={'kanbanColumn'}>
-                Status1
-                <div>
-                    <p>Task</p>
-                    <p>Beschreibung</p>
-                    <button>ok</button>
-                    <button>ok</button>
-                    <button>ok</button>
-                </div>
+                <h3>{props.headline}</h3>
+                {taskComponents}
         </div>
     )
 }
