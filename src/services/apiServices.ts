@@ -11,11 +11,7 @@ export function createTask(task: Task) {
 }
 
 export function deleteTask(taskId: string) {
-    // return fetch(`http://localhost:8080/api/kanban/error${taskId}`, {
-    //     method: 'DELETE'
-    // })
-
-    return axios.delete(`http://localhost:8080/api/kanban/error${taskId}`)
+    return axios.delete(`http://localhost:8080/api/kanban/${taskId}`)
 }
 
 export function promoteTask(task: Task) {
