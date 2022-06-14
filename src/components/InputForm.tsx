@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from "react";
+import { setSyntheticLeadingComments } from "typescript";
 
 import { createTask } from "../services/apiServices";
 
@@ -13,7 +14,6 @@ export default function InputForm(props: InputFormProps) {
 
     const submitForm = (ev: FormEvent) => {
         ev.preventDefault();
-
         createTask({task: task, description: description, status: 'OPEN'})
             .then(() => {
                 setTask('');
@@ -25,9 +25,9 @@ export default function InputForm(props: InputFormProps) {
     return(
         <div className={'inputForm'}>
             <form onSubmit={submitForm}>
-                <input type="text" value={task} placeholder="Task" onChange={ev => setTask(ev.target.value)} />
-                <input type="text" value={description} placeholder="Description" onChange={ev => setDescription(ev.target.value)} />
-                <input type="submit" value="Save" />
+                <input data-testid="task-field" type="text" value={task} placeholder="Task" onChange={ev => setTask(ev.target.value)} />
+                <input data-testid="description-field" type="text" value={description} placeholder="Description" onChange={ev => setDescription(ev.target.value)} />
+                <input data-testid="submit-button" type="submit" value="Save" />
             </form>
         </div>
     )
