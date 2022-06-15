@@ -1,29 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Header from "./components/Header";
-import InputForm from "./components/InputForm";
-import KanbanGallery from "./components/KanbanGallery";
-import { fetchAllTasks } from './services/apiServices';
-import { Task } from './services/model';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EditPage from "./EditPage";
+import KanbanBoard from "./KanbanBoard";
 
 export default function App() {
-
-    const [tasks, setTasks] = useState<Array<Task>>([]);
-
-    useEffect(() => {
-        fetchAll();
-    }, [])
-
-    const fetchAll = () => {
-        fetchAllTasks()
-            .then((tasksFromDB: Array<Task>) => setTasks(tasksFromDB))
-    }
-
     return (
-        <div>
-            <Header/>
-            <InputForm onTaskCreation={fetchAll} />
-            <KanbanGallery tasks={tasks} onTaskManipulation={fetchAll} />
-        </div>
-    );
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<KanbanBoard />} />
+                <Route path="/edit/:taskId" element={<EditPage />} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
