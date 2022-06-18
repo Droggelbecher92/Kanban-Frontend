@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { deleteTask, demoteTask, promoteTask } from "../services/apiServices";
 import { Task } from "../services/model"
 
@@ -40,6 +41,9 @@ export default function KanbanCard(props: KanbanCardProps) {
             <p>{props.task.task}</p>
             <p>{props.task.description}</p>
             { props.task.status === 'OPEN' ? <button onClick={deleteCard}>Delete</button> : <button onClick={prev}>Prev</button> }
+            <NavLink to={`/edit/${props.task.id}`}>
+                <button>Edit task</button>
+            </NavLink>
             { props.task.status === 'DONE' ? <button onClick={deleteCard}>Delete</button> : <button onClick={next}>Next</button> }
             { errorMessage &&
                 <div className="error">
