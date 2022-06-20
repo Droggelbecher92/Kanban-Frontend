@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from "../components/Header";
 import InputForm from "../components/InputForm";
 import KanbanGallery from "../components/KanbanGallery";
 import { fetchAllTasks } from '../services/apiServices';
@@ -20,7 +19,6 @@ export default function KanbanBoard() {
 
     return (
         <>
-            <Header/>
             <InputForm onTaskCreation={fetchAll} />
             <KanbanGallery tasks={tasks} onTaskManipulation={fetchAll} />
         </>

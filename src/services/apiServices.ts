@@ -24,6 +24,7 @@ export function demoteTask(task: Task) {
 
 export function getTask(id: string) {
     return axios.get(`http://localhost:8080/api/kanban/${id}`)
+        .then((response: AxiosResponse<Task>) => response.data)
 }
 
 export function editTask(task: Task) {
