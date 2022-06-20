@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import EditPage from "./EditPage";
-import KanbanBoard from "./KanbanBoard";
+import EditPage from "./pages/EditPage";
+import KanbanBoard from "./pages/KanbanBoard";
 
 export default function App() {
     return (

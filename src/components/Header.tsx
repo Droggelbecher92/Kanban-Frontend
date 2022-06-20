@@ -2,8 +2,15 @@ import React from "react";
 
 export default function Header() {
     return(
-        <div className={'header'}>
-            <h1 data-testid="headline">Kanban-Dude</h1>
-        </div>
+        <section className="hero is-primary">
+            <div className="hero-body">
+                <p className="title">
+                    Kanban-Dude
+                </p>
+                <p className="subtitle">
+                    Kanban-Dude subtitle
+                </p>
+            </div>
+        </section>
     )
 }

@@ -25,9 +25,19 @@ export default function InputForm(props: InputFormProps) {
     return(
         <div className={'inputForm'}>
             <form onSubmit={submitForm}>
-                <input data-testid="task-field" type="text" value={task} placeholder="Task" onChange={ev => setTask(ev.target.value)} />
-                <input data-testid="description-field" type="text" value={description} placeholder="Description" onChange={ev => setDescription(ev.target.value)} />
-                <input data-testid="submit-button" type="submit" value="Save" />
+            <div className="field">
+                    <div className="control">
+                        <input data-testid="task-field" className="input" type="text" value={task} placeholder="Task" onChange={ev => setTask(ev.target.value)} />
+                    </div>
+                </div>
+                <div className="field">
+                    <div className="control">
+                        <input data-testid="description-field" className="input" type="text" value={description} placeholder="Description" onChange={ev => setDescription(ev.target.value)} />
+                    </div>
+                </div>
+                <div className="control">
+                    <input data-testid="submit-button" type="submit" className="button is-link" value="Save" />
+                </div>
             </form>
         </div>
     )

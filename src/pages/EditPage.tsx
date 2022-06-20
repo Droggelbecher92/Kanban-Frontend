@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { editTask, getTask } from "./services/apiServices";
-import { Task } from "./services/model";
+import { editTask, getTask } from "../services/apiServices";
+import { Task } from "../services/model";
 
 export default function EditPage() {
     const [task, setTask] = useState('');

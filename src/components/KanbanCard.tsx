@@ -40,11 +40,11 @@ export default function KanbanCard(props: KanbanCardProps) {
         <div className={'kanbanCard'}>
             <p>{props.task.task}</p>
             <p>{props.task.description}</p>
-            { props.task.status === 'OPEN' ? <button onClick={deleteCard}>Delete</button> : <button onClick={prev}>Prev</button> }
+            { props.task.status === 'OPEN' ? <button className="button is-link is-light" onClick={deleteCard}>Delete</button> : <button className="button is-link is-light" onClick={prev}>Prev</button> }
             <NavLink to={`/edit/${props.task.id}`}>
-                <button>Edit task</button>
+                <button className="button is-link is-light">Edit task</button>
             </NavLink>
-            { props.task.status === 'DONE' ? <button onClick={deleteCard}>Delete</button> : <button onClick={next}>Next</button> }
+            { props.task.status === 'DONE' ? <button className="button is-link is-light" onClick={deleteCard}>Delete</button> : <button className="button is-link is-light" onClick={next}>Next</button> }
             { errorMessage &&
                 <div className="error">
                     { errorMessage }
