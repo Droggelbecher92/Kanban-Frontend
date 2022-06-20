@@ -14,8 +14,8 @@ export default function KanbanColumn(props: KanbanColumnProps) {
 
     return(
         <div className={'kanbanColumn'}>
-                <h3>{props.headline}</h3>
-                {taskComponents}
+            <h4 className="title is-4">{props.headline}</h4>
+            {taskComponents}
         </div>
     )
 }
