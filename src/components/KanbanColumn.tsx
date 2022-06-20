@@ -10,7 +10,7 @@ interface KanbanColumnProps {
 
 export default function KanbanColumn(props: KanbanColumnProps) {
 
-    const taskComponents = props.tasks.map(task => <div key={task.id}><KanbanCard task={task} onTaskDeletion={props.onTaskManipulation} /></div>)
+    const taskComponents = props.tasks.map(task => <div key={task.id}><KanbanCard task={task} onTaskManipulation={props.onTaskManipulation} /></div>)
 
     return(
         <div className={'kanbanColumn'}>
