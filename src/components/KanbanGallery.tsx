@@ -1,4 +1,3 @@
-import React from "react";
 import { Task } from "../services/model";
 import KanbanColumn from "./KanbanColumn";
 
@@ -15,13 +14,13 @@ export default function KanbanGallery(props: KanbanGalleryProps) {
 
     return(
         <div className="columns">
-            <div className="column">
+            <div data-testid="open-column" className="column">
                 <KanbanColumn headline="Open" tasks={openTasks} onTaskManipulation={props.onTaskManipulation} />
             </div>
-            <div className="column">
+            <div data-testid="in-progress-column"  className="column">
                 <KanbanColumn headline="In Progress" tasks={tasksInProgress} onTaskManipulation={props.onTaskManipulation} />
             </div>
-            <div className="column">
+            <div data-testid="done-column" className="column">
                 <KanbanColumn headline="Done" tasks={doneTasks} onTaskManipulation={props.onTaskManipulation} />
             </div>
         </div>
